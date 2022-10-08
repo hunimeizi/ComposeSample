@@ -14,15 +14,6 @@ data class AppSize(
 ```
 
 ```kotlin
-package com.liholin.compose.sample.uiutils
-
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.compositionLocalOf
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
-
 val LocalDesignSize = compositionLocalOf {
     AppSize(width = 1080, height = 1920)
 }
