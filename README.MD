@@ -1,5 +1,12 @@
 ##### Compose 屏幕适配
 ```kotlin
+// 小红点提示
+fun Modifier.unReadTip() = this.drawWithContent {
+        drawContent()
+        drawCircle(Color.Red, 5.dp.toPx(), Offset(size.width - 2.dp.toPx(), 2.dp.toPx()))
+    }
+```
+```kotlin
 data class AppSize(
     val width: Int,
     val height: Int
