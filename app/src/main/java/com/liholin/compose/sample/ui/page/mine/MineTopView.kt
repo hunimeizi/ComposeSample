@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import com.liholin.compose.sample.R
@@ -34,7 +35,7 @@ fun WSViewTip() {
         .clip(RoundedCornerShape(8.dp))
         .background(Color(0xfff3e5fa))) {
         Column(modifier = Modifier.padding(start = 92.dpWidth, top = 37.dpWidth, end = 92.dpWidth)) {
-            Row {
+            Row(horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
                 Image(painterResource(id = R.mipmap.icon_level), contentDescription = null,
                 modifier = Modifier
                     .width(70.dpWidth)

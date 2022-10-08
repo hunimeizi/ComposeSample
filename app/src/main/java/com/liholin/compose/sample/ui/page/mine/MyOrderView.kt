@@ -40,7 +40,7 @@ fun MyOrderView() {
                     contentDescription = null,
                     Modifier
                         .padding(bottom = 26.dpWidth)
-                        .width(72.dpWidth).height(68.dpHeight))
+                        .width(72.dpWidth).height(68.dpHeight).unReadTip())
                 Text(text = "代付款", fontSize = 12.sp, color = Color.Black)
             }
             Column(modifier = Modifier.weight(1f).fillMaxHeight(),verticalArrangement = Arrangement.Center,
@@ -66,7 +66,7 @@ fun MyOrderView() {
                 Image(painterResource(id = R.mipmap.icon_th),
                     contentDescription = null,
                     Modifier
-                        .padding(bottom = 3.dpWidth)
+                        .padding(bottom = 18.dpWidth)
                         .width(73.dpWidth).height(76.dpHeight))
                 Text(text = "退货", fontSize = 12.sp, color = Color.Black)
             }
