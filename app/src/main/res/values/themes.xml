@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.ComposeSample" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/purple_700</item>
+    </style>
+    <!-- 闪屏页主题 -->
+    <style name="SplashTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">#666666</item>
+        <item name="colorPrimaryDark">#ffffff</item>
+        <item name="colorAccent">#EF3939</item>
+        <item name="android:windowBackground">@drawable/app_splash</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
