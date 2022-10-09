@@ -7,4 +7,6 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
     var phone by mutableStateOf("1866677889")
+    var homeIndex by mutableStateOf(0)
+    var homeCount by mutableStateOf(12)
 }

@@ -5,18 +5,11 @@ pluginManagement {
         mavenCentral()
         maven{ url 'https://maven.aliyun.com/repository/central'}
         maven{ url 'https://maven.aliyun.com/nexus/content/groups/public/'}
-        maven {url 'https://developer.huawei.com/repo/'}
         maven { url "https://jitpack.io" }
         maven {
             url 'https://maven.aliyun.com/nexus/content/repositories/releases/'
         }
-        maven {
-            url 'https://developer.huawei.com/repo/'
-        }
         maven { url  'https://repo1.maven.org/maven2/'}
-        maven {
-            url "https://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/"
-        }
         maven { url "https://maven.aliyun.com/repository/public" }
     }
 }
@@ -27,18 +20,11 @@ dependencyResolutionManagement {
         mavenCentral()
         maven{ url 'https://maven.aliyun.com/repository/central'}
         maven{ url 'https://maven.aliyun.com/nexus/content/groups/public/'}
-        maven {url 'https://developer.huawei.com/repo/'}
         maven { url "https://jitpack.io" }
         maven {
             url 'https://maven.aliyun.com/nexus/content/repositories/releases/'
         }
-        maven {
-            url 'https://developer.huawei.com/repo/'
-        }
         maven { url  'https://repo1.maven.org/maven2/'}
-        maven {
-            url "https://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/"
-        }
         maven { url "https://maven.aliyun.com/repository/public" }
     }
 }

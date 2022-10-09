@@ -13,7 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun MineView() {
+fun MinePage() {
     Column(Modifier
         .fillMaxSize()
         .background(Color(0xfff1f2f6))
@@ -24,7 +24,7 @@ fun MineView() {
         MoneyView()
         MyOrderView()
         ManageService()
-        Spacer(modifier = Modifier.height(30.dp))
+        Spacer(modifier = Modifier.height(80.dp))
     }
 }
 
@@ -37,5 +37,5 @@ fun Modifier.unReadTip() = this.drawWithContent {
 @Preview
 @Composable
 fun PrevMineView() {
-    MineView()
+    MinePage()
 }

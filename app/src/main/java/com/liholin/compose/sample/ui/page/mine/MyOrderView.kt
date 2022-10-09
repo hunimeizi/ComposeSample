@@ -4,6 +4,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Badge
+import androidx.compose.material.BadgedBox
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -36,11 +38,19 @@ fun MyOrderView() {
             .weight(1f)) {
             Column(modifier = Modifier.weight(1f).fillMaxHeight(), verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally) {
-                Image(painterResource(id = R.mipmap.icon_dfk),
-                    contentDescription = null,
-                    Modifier
-                        .padding(bottom = 26.dpWidth)
-                        .width(72.dpWidth).height(68.dpHeight).unReadTip())
+                BadgedBox(
+                    badge = {
+                            Badge(modifier = Modifier.padding(top = 10.dp), backgroundColor = Color.Red){
+                                Text("1", color = Color.White)
+                            }
+                    },
+                ) {
+                    Image(painterResource(id = R.mipmap.icon_dfk),
+                        contentDescription = null,
+                        Modifier
+                            .padding(bottom = 26.dpWidth)
+                            .width(72.dpWidth).height(68.dpHeight)/*.unReadTip()*/)
+                }
                 Text(text = "代付款", fontSize = 12.sp, color = Color.Black)
             }
             Column(modifier = Modifier.weight(1f).fillMaxHeight(),verticalArrangement = Arrangement.Center,

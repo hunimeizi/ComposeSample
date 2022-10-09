@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ComposeSample</string>
+    <string name="home">小店</string>
+    <string name="find">发现</string>
+    <string name="message">消息</string>
+    <string name="mine">我的</string>
 </resources>

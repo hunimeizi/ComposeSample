@@ -10,15 +10,12 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import androidx.core.view.doOnNextLayout
-import androidx.lifecycle.lifecycleScope
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.liholin.compose.sample.ui.page.mine.MineView
+import com.liholin.compose.sample.ui.page.main.AppScaffold
 import com.liholin.compose.sample.ui.theme.ComposeSampleTheme
 import com.liholin.compose.sample.uiutils.ProvideDesignSize
 import com.liholin.compose.sample.uiutils.ProvideFullSize
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnrememberedMutableState")
@@ -38,17 +35,12 @@ class MainActivity : ComponentActivity() {
                             }
                             ProvideFullSize(width = it.width, height = it.height) {
                                 ProvideDesignSize(width = 1080, height = 2600) {
-                                    MineView()
+                                    AppScaffold()
                                 }
                             }
                         }
                     }
                 }
-            }
-
-            lifecycleScope.launch {
-                delay(3000)
-                viewModel.phone = "13582309907"
             }
     }
 }
