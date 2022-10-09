@@ -1,0 +1,34 @@
+[
+  {
+    "remark":"123",
+    "storeId":1,
+    "storeStatus":1,
+    "storeName":"1",
+    "storeCode":"1",
+    "shopLogo":"https://xinlingshouverbint.oss-cn-beijing.aliyuncs.com/miniApp/storeLogo.png"
+  },
+  {
+    "remark":null,
+    "storeId":5,
+    "storeStatus":1,
+    "storeName":"4",
+    "storeCode":"123",
+    "shopLogo":"https://xinlingshouverbint.oss-cn-beijing.aliyuncs.com/miniApp/storeLogo.png"
+  },
+  {
+    "remark":null,
+    "storeId":6,
+    "storeStatus":1,
+    "storeName":"淘宝啊",
+    "storeCode":"333333333",
+    "shopLogo":"https://xinlingshouverbint.oss-cn-beijing.aliyuncs.com/miniApp/storeLogo.png"
+  },
+  {
+    "remark":null,
+    "storeId":7,
+    "storeStatus":1,
+    "storeName":"5",
+    "storeCode":"1",
+    "shopLogo":"https://xinlingshouverbint.oss-cn-beijing.aliyuncs.com/miniApp/storeLogo.png"
+  }
+]
