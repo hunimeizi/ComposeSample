@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -53,7 +54,7 @@ fun StoreView() {
                 Column(modifier = Modifier
                     .fillMaxHeight()
                     .width(270.dpWidth)
-                    .clickable {
+                    .clickable(onClick = {
                         storeMember.forEachIndexed { indexData, responseItem ->
                             responseItem.clicked = index == indexData
                         }
@@ -62,6 +63,9 @@ fun StoreView() {
                         storeMember.clear()
                         storeMember.addAll(storeList)
                     },
+                        indication = null, interactionSource = remember {
+                            MutableInteractionSource()
+                        }),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally) {
                     Image(rememberAsyncImagePainter(model = item.shopLogo,
