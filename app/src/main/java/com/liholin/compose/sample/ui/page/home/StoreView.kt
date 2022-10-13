@@ -1,26 +1,28 @@
 package com.liholin.compose.sample.ui.page.home
 
 import android.annotation.SuppressLint
-import android.telephony.TelephonyManager
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
 import com.liholin.compose.sample.R
+import com.liholin.compose.sample.bean.MallStoreResponseItem
 import com.liholin.compose.sample.ui.home.MainViewModel
 import com.liholin.compose.sample.uiutils.dpHeight
 import com.liholin.compose.sample.uiutils.dpWidth
@@ -28,24 +30,37 @@ import com.liholin.compose.sample.uiutils.dpWidth
 @SuppressLint("MutableCollectionMutableState")
 @Composable
 fun StoreView() {
-    Log.e("lyb======", "3333333")
-    val viewModel : MainViewModel = viewModel()
+    val viewModel: MainViewModel = viewModel()
+
+    val storeResoonse by remember {
+        mutableStateOf(viewModel.getStoreData())
+    }
+    val storeMember = remember {
+        mutableStateListOf<MallStoreResponseItem>().apply {
+            storeResoonse.forEach {
+                add(it)
+            }
+        }
+    }
     Box(modifier = Modifier
         .padding(start = 31.dpWidth, end = 31.dpWidth, top = 39.dpWidth)
         .fillMaxWidth()
         .height(349.dpHeight)
         .background(Color.White)) {
-
         LazyRow(modifier = Modifier.fillMaxSize(),
             verticalAlignment = Alignment.CenterVertically) {
-            itemsIndexed(viewModel.storeResponse) { index, item ->
+            itemsIndexed(storeMember) { index, item ->
                 Column(modifier = Modifier
                     .fillMaxHeight()
                     .width(270.dpWidth)
                     .clickable {
-                       viewModel.storeResponse.forEachIndexed { indexData, responseItem ->
-                                   responseItem.clicked = index == indexData
-                           }
+                        storeMember.forEachIndexed { indexData, responseItem ->
+                            responseItem.clicked = index == indexData
+                        }
+                        val storeList = ArrayList<MallStoreResponseItem>()
+                        storeList.addAll(storeMember)
+                        storeMember.clear()
+                        storeMember.addAll(storeList)
                     },
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally) {
@@ -59,6 +74,7 @@ fun StoreView() {
                     Box(
                         modifier = if(item.clicked) Modifier
                             .size(142.dpWidth, 50.dpHeight)
+                            .clip(RoundedCornerShape(10.dp))
                             .background(
                                 brush = Brush.horizontalGradient(
                                     colors = listOf(

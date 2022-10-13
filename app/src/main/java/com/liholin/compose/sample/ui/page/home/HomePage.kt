@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,19 +34,8 @@ fun HomePage() {
 fun MallView() {
     Column(Modifier.fillMaxSize()) {
         MallTopView()
-        getStoreData()
         StoreView()
     }
-}
-
-@Composable
-fun getStoreData() {
-    val viewModel: MainViewModel = viewModel()
-    viewModel.storeResponse  = Gson().fromJson(
-            LocalFileUtils.getStringFormAsset(BaseApplication.context, "storeData.json"),
-            object : TypeToken<MutableList<MallStoreResponseItem?>?>() {}.type
-        )
-        Log.e("lyb======gson=",Gson().toJson(viewModel.storeResponse))
 }
 
 @Preview
