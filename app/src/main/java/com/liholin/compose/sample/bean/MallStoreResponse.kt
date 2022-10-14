@@ -1,20 +1,16 @@
 package com.liholin.compose.sample.bean
 
-import com.google.gson.annotations.SerializedName
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 
-class MallStoreResponseItem(
-    @SerializedName("remark")
-    var remark: String? = "",
-    @SerializedName("storeCode")
-    var storeCode: String? = "",
-    @SerializedName("storeId")
-    var storeId: Int? = 0,
-    @SerializedName("storeName")
-    var storeName: String? = "",
-    @SerializedName("storeStatus")
-    var storeStatus: String? = "",
-    @SerializedName("shopLogo")
-    var shopLogo: String? = "",
-    var clicked: Boolean = false,
-)
+class MallStoreResponseItem{
+    var remark: String? = ""
+    var storeCode: String? = ""
+    var storeId: Int? = 0
+    var storeName: String? = ""
+    var storeStatus: String? = ""
+    var shopLogo: String? = ""
+    var clicked by mutableStateOf(false)
+}
 

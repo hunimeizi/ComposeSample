@@ -33,13 +33,11 @@ import com.liholin.compose.sample.uiutils.dpWidth
 fun StoreView() {
     val viewModel: MainViewModel = viewModel()
 
-    val storeResoonse by remember {
-        mutableStateOf(viewModel.getStoreData())
-    }
     val storeMember = remember {
         mutableStateListOf<MallStoreResponseItem>().apply {
-            storeResoonse.forEach {
-                add(it)
+            viewModel.getStoreData().forEachIndexed { index, responseItem ->
+                responseItem.clicked = index == 0
+                add(responseItem)
             }
         }
     }
@@ -58,10 +56,6 @@ fun StoreView() {
                         storeMember.forEachIndexed { indexData, responseItem ->
                             responseItem.clicked = index == indexData
                         }
-                        val storeList = ArrayList<MallStoreResponseItem>()
-                        storeList.addAll(storeMember)
-                        storeMember.clear()
-                        storeMember.addAll(storeList)
                     },
                         indication = null, interactionSource = remember {
                             MutableInteractionSource()
@@ -87,7 +81,7 @@ fun StoreView() {
                                     ),
                                     tileMode = TileMode.Decal
                                 )
-                            ) else Modifier,
+                            ) else Modifier.size(142.dpWidth, 50.dpHeight),
                         contentAlignment = Alignment.Center
                     ) {
                         Text(text = item.storeName ?: "",
