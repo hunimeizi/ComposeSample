@@ -68,8 +68,8 @@ fun MallTopView() {
                 "https://www.ficgra.cn/design/wp-content/uploads/2019/03/fuzhuangbanner.png",
                 "https://www.taobao.com/")),
             modifier = Modifier
-                .padding(start = 31.dpWidth, end = 31.dpWidth, top = 231.dpWidth)
-                .width(1019.dpWidth)
+                .padding(top = 231.dpWidth)
+                .fillMaxWidth()
                 .height(563.dpHeight),
             onClick = { link, title ->
 

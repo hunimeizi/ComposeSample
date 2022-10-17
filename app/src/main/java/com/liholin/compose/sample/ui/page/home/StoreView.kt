@@ -27,6 +27,7 @@ import com.liholin.compose.sample.bean.MallStoreResponseItem
 import com.liholin.compose.sample.ui.home.MainViewModel
 import com.liholin.compose.sample.uiutils.dpHeight
 import com.liholin.compose.sample.uiutils.dpWidth
+import com.liholin.compose.sample.uiutils.spText
 
 @SuppressLint("MutableCollectionMutableState")
 @Composable
@@ -86,7 +87,7 @@ fun StoreView() {
                     ) {
                         Text(text = item.storeName ?: "",
                             color = if(item.clicked) Color.White else Color.Black,
-                            fontSize = 14.sp)
+                            fontSize = 36.spText)
                     }
                 }
             }

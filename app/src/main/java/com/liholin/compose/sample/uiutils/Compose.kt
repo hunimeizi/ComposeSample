@@ -5,7 +5,9 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 val LocalDesignSize = compositionLocalOf {
     AppSize(width = 1080, height = 1920)
@@ -67,6 +69,18 @@ val Double.dpHeight: Dp
         return (this * ratio).dp
     }
 
+val Double.spHeight: TextUnit
+    @Composable
+    get() {
+        val key = LocalDesignSize.current.height * 31 + LocalFullSize.current.height
+
+        val ratio = heightRatioMap.getOrPut(key) {
+            val fullDp = LocalFullSize.current.height / LocalDensity.current.density
+            fullDp / LocalDesignSize.current.height
+        }
+
+        return (this * ratio).sp
+    }
 
 val Float.dpHeight: Dp
     @Composable
@@ -75,3 +89,11 @@ val Float.dpHeight: Dp
 val Int.dpHeight: Dp
     @Composable
     get() = toDouble().dpHeight
+
+val Float.spText: TextUnit
+    @Composable
+    get() = toDouble().spHeight
+
+val Int.spText: TextUnit
+    @Composable
+    get() = toDouble().spHeight

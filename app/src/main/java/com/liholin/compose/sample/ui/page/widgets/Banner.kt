@@ -5,6 +5,7 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -23,6 +24,7 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.liholin.compose.sample.R
 import com.liholin.compose.sample.bean.BannerData
+import com.liholin.compose.sample.uiutils.dpWidth
 import kotlinx.coroutines.delay
 
 /**
@@ -78,6 +80,7 @@ fun Banner(
                 count = list.size,
                 state = pagerState,
                 modifier = Modifier
+                    .fillMaxSize()
                     .pointerInput(pagerState.currentPage) {
                         awaitPointerEventScope {
                             while (true) {
@@ -106,16 +109,18 @@ fun Banner(
                             }
                         }
                     }
-                    .clickable {
+                    .clickable(onClick = {
                         with(list[pagerState.currentPage]) {
                             onClick.invoke(linkUrl, title)
                         }
-                    }
+                    },indication = null, interactionSource = remember {
+                            MutableInteractionSource()
+                        })
                     .fillMaxSize(),
             ) { page ->
                 Image(
                     painter = rememberAsyncImagePainter(list[page].imageUrl),
-                    modifier = Modifier.fillMaxSize().clip(shape = RoundedCornerShape(16.dp)),
+                    modifier = Modifier.padding(start = 20.dpWidth, end = 20.dpWidth).fillMaxSize().clip(shape = RoundedCornerShape(8.dp)),
                     contentScale = ContentScale.Crop,
                     contentDescription = null
                 )
