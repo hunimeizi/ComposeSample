@@ -90,10 +90,10 @@ val Int.dpHeight: Dp
     @Composable
     get() = toDouble().dpHeight
 
-val Float.spText: TextUnit
+val Float.spTextSize: TextUnit
     @Composable
     get() = toDouble().spHeight
 
-val Int.spText: TextUnit
+val Int.spTextSize: TextUnit
     @Composable
     get() = toDouble().spHeight

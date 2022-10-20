@@ -19,7 +19,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
 import com.liholin.compose.sample.R
@@ -27,7 +26,7 @@ import com.liholin.compose.sample.bean.MallStoreResponseItem
 import com.liholin.compose.sample.ui.home.MainViewModel
 import com.liholin.compose.sample.uiutils.dpHeight
 import com.liholin.compose.sample.uiutils.dpWidth
-import com.liholin.compose.sample.uiutils.spText
+import com.liholin.compose.sample.uiutils.spTextSize
 
 @SuppressLint("MutableCollectionMutableState")
 @Composable
@@ -87,7 +86,7 @@ fun StoreView() {
                     ) {
                         Text(text = item.storeName ?: "",
                             color = if(item.clicked) Color.White else Color.Black,
-                            fontSize = 36.spText)
+                            fontSize = 36.spTextSize)
                     }
                 }
             }
