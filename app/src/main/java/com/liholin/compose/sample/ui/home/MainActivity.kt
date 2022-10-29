@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
@@ -21,7 +20,6 @@ class MainActivity : ComponentActivity() {
     @SuppressLint("UnrememberedMutableState")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModel : MainViewModel by viewModels()
         WindowCompat.setDecorFitsSystemWindows(window, false)
         findViewById<View>(android.R.id.content)
             .doOnNextLayout {

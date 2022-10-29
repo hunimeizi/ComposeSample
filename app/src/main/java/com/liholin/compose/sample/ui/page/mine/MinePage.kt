@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun MinePage() {
+    println("MinePage===========")
     Column(Modifier
         .fillMaxSize()
         .background(Color(0xfff1f2f6))

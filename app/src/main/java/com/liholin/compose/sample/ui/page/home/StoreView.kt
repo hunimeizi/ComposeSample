@@ -23,6 +23,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
 import com.liholin.compose.sample.R
 import com.liholin.compose.sample.bean.MallStoreResponseItem
+import com.liholin.compose.sample.ui.home.MainIntent
 import com.liholin.compose.sample.ui.home.MainViewModel
 import com.liholin.compose.sample.uiutils.dpHeight
 import com.liholin.compose.sample.uiutils.dpWidth
@@ -33,13 +34,16 @@ import com.liholin.compose.sample.uiutils.spTextSize
 fun StoreView() {
     val viewModel: MainViewModel = viewModel()
 
-    val storeMember = remember {
-        mutableStateListOf<MallStoreResponseItem>().apply {
-            viewModel.getStoreData().forEachIndexed { index, responseItem ->
-                responseItem.clicked = index == 0
-                add(responseItem)
-            }
+    val viewState = viewModel.uiState
+    LaunchedEffect(Unit){
+        viewModel.mainChannel.send(MainIntent.GetStoreData)
+    }
+    val storeMember = remember(viewState.storeData) {
+        viewState.copy(storeData = viewState.storeData.apply {
+        viewState.storeData.forEachIndexed { index, responseItem ->
+            responseItem.clicked = index == 0
         }
+    }).storeData
     }
     Box(modifier = Modifier
         .padding(start = 31.dpWidth, end = 31.dpWidth, top = 39.dpWidth)

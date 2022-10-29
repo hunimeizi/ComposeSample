@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 fun HomePage() {
 //    val refreshState = rememberSmartSwipeRefreshState()
 //    val scrollState = rememberLazyListState()
+    println("HomePage===========")
     Column(Modifier
         .fillMaxSize()
         .background(Color(0xfff1f2f6))
